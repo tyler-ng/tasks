@@ -1,9 +1,9 @@
 [project]
-name = "tasks"
+name = "tasks-api"
 version = "0.1.0"
-description = "sample project with FastAPI framework"
+description = "Fast API example"
 authors = [
-    {name = "Tyler Nguyen", email = "tylernn812@gmail.com"}
+    {name = "Tyler Nguyen",email = "tylernn812@gmail.com"}
 ]
 readme = "README.md"
 requires-python = "^3.9"
