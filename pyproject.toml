@@ -3,7 +3,7 @@ name = "tasks"
 version = "0.1.0"
 description = "sample project with FastAPI framework"
 authors = [
-    {name = "Tyler Nguyen",email = "tylernn812@gmail.com"}
+    {name = "Tyler Nguyen", email = "tylernn812@gmail.com"}
 ]
 readme = "README.md"
 requires-python = "^3.9"
