@@ -1,7 +1,7 @@
 [project]
 name = "tasks"
 version = "0.1.0"
-description = "sample project with FastAPI"
+description = "sample project with FastAPI framework"
 authors = [
     {name = "Tyler Nguyen",email = "tylernn812@gmail.com"}
 ]
