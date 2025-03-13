@@ -20,7 +20,7 @@ jobs:
         python-version: [3.12]
         poetry-version: [2.1.1]
         os: [ubuntu-latest]
-    runs-on: $${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
     defaults:
       run:
         working-directory: services/tasks_api
