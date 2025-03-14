@@ -15,7 +15,7 @@ provider:
 
 functions:
   API:
-    handler: main.handler
+    handler: main.handle
     timeout: 10
     memorySize: 512
     events:
