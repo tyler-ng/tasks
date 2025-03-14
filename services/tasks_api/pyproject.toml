@@ -1,23 +1,15 @@
-[project]
+[tool.poetry]
 name = "tasks-api"
 version = "0.1.0"
-description = "Fast API example"
-authors = [
-    {name = "Tyler Nguyen",email = "tylernn812@gmail.com"}
-]
-readme = "README.md"
-requires-python = "^3.9"
-dependencies = [
-    "fastapi (>=0.115.11,<0.116.0)",
-    "uvicorn (>=0.34.0,<0.35.0)",
-    "httpx (>=0.28.1,<0.29.0)",
-    "mangum (>=0.19.0,<0.20.0)"
-]
+description = "to do task"
+authors = ["Tyler Nguyen <tylernn812@gmail.com>"]
 
+[tool.poetry.dependencies]
+python = "3.13.2"
+fastapi = "^0.115.11"
+uvicorn = "^0.34.0"
+httpx = "^0.28.1"
 
-[build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
-build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.5"
@@ -27,3 +19,6 @@ isort = "^6.0.1"
 flake8 = "^7.1.2"
 bandit = "^1.8.3"
 
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
