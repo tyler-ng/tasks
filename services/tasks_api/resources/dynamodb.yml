@@ -11,7 +11,7 @@ Resources:
           AttributeType: S
         - AttributeName: GS1PK
           AttributeType: S
-        - AttributeName: GS1PK
+        - AttributeName: GS1SK
           AttributeType: S
       KeySchema:
         - AttributeName: PK
@@ -23,7 +23,7 @@ Resources:
           KeySchema:
             - AttributeName: GS1PK
               KeyType: HASH
-            - AttributeName: GS1PK
+            - AttributeName: GS1SK
               KeyType: RANGE
           Projection:
             ProjectType: ALL
