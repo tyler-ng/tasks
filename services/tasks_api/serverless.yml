@@ -12,6 +12,21 @@ provider:
   logRetentionInDays: 90
   environment:
     APP_ENVIRONMENT: ${self:provider.stage}
+iam:
+  role:
+    statements:
+      - Effect: Allow
+        Action:
+          - dynamodb:DescribeTable
+          - dynamodb:Query
+          - dynamodb:Scan
+          - dynamodb:GetItem
+          - dynamodb:PutItem
+          - dynamodb:UpdateItem
+          - dynamodb:DeleteItem
+        Resource:
+          - "Fn::GetAtt": [ TasksAPITable, Arn ]
+          - "Fn::Join": ['/', ["Fn::GetAtt": [ TasksAPITable, Arn ], 'index', '*']]
 
 functions:
   API:
@@ -36,3 +51,6 @@ custom:
 
 plugins:
   - serverless-python-requirements
+
+resources:
+  - ${file(resources/dynamodb.yml)}
