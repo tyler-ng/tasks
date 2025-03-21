@@ -26,4 +26,4 @@ Resources:
             - AttributeName: GS1SK
               KeyType: RANGE
           Projection:
-            ProjectType: ALL
+            ProjectionType: ALL
