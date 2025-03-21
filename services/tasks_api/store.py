@@ -19,7 +19,7 @@ class TaskStore:
                 "PK": f"#{task.owner}",
                 "SK": f"#{task.id}",
                 "GS1PK": f"#{task.owner}#{task.status.value}",
-                "GS1SK": f"#{datetime.datetime.now(datetime.UTC).isoformat()}",
+                "GS1SK": f"#{datetime.datetime.now(datetime.timezone.utc)}",
                 "id": str(task.id),
                 "title": task.title,
                 "status": task.status,
@@ -39,14 +39,18 @@ class TaskStore:
         )
 
     def list_open(self, owner):
+        return self._list_by_status(owner, TaskStatus.OPEN)
+
+    def list_closed(self, owner):
+        return self._list_by_status(owner, TaskStatus.CLOSED)
+
+    def _list_by_status(self, owner, status):
         dynamodb = boto3.resource("dynamodb")
         table = dynamodb.Table(self.table_name)
         last_key = None
         query_kwargs = {
             "IndexName": "GS1",
-            "KeyConditionExpression": Key("GS1PK").eq(
-                f"#{owner}#{TaskStatus.OPEN.value}"
-            ),
+            "KeyConditionExpression": Key("GS1PK").eq(f"#{owner}#{status.value}")
         }
         tasks = []
         while True:
@@ -67,5 +71,4 @@ class TaskStore:
             last_key = response.get("LastEvaluatedKey")
             if last_key is None:
                 break
-
         return tasks
